@@ -1,4 +1,9 @@
-﻿using Swashbuckle.AspNetCore.SwaggerGen;
+﻿using Microsoft.EntityFrameworkCore;
+using SalesTaxes.Domains.Product.Domain;
+using SalesTaxes.Domains.Product.Infrastructure;
+using SalesTaxes.Domains.Product.Infrastructure.Repository;
+using SalesTaxes.Domains.Product.ServiceDefinition;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace SalesTaxes.API;
 
@@ -24,13 +29,15 @@ public class Startup
         services.AddSwaggerGen(ConfigureSwagger);
         
         // Service Definition
-       
+        services.AddScoped<IProductService, ProductService>();
 
         // Repositories
-       
+        services.AddScoped<IProductRepository, ProductRepository>();
+
 
         //DbContext
-        
+        var connectionStringSqlite = Configuration.GetConnectionString("Sqlite");
+        services.AddDbContext<ProductDbContext>(options => options.UseSqlite(connectionStringSqlite));
 
     }
 

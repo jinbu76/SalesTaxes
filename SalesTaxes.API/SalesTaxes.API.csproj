@@ -11,4 +11,9 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\SalesTaxes.Domains.Product.Infrastructure\SalesTaxes.Domains.Product.Infrastructure.csproj" />
+      <ProjectReference Include="..\SalesTaxes.Domains.Product.ServiceDefinition\SalesTaxes.Domains.Product.ServiceDefinition.csproj" />
+    </ItemGroup>
+
 </Project>
