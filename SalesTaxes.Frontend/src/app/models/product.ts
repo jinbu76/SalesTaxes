@@ -5,4 +5,5 @@ export interface Product {
   IsImported: boolean;
   Taxes: number;
   DutyFree: number;
+  FullPrice: string;
 }
