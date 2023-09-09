@@ -1,6 +1,6 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {AfterViewInit, Component, inject} from '@angular/core';
 import {GlobalService} from "../global.service";
-import {Product} from "../models/product";
+
 
 @Component({
   selector: 'app-shopping-cart',
