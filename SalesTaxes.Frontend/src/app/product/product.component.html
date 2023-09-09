@@ -1,0 +1,10 @@
+<div *ngIf="(products$ | async) as products">
+  <h1 class="text-xl font-bold">Products</h1>
+  <div class="flex my-2 hover:bg-gray-300 items-center" *ngFor="let product of products">
+    <div class="basis-1/4">{{ product.Name }}</div>
+    <div class="basis-1/4">{{ product.Price.toFixed(2) }}</div>
+    <div class="basis-1/4">{{product.IsImported ? 'import' : ''}}</div>
+    <div class="basis-1/4"><button mat-raised-button color="primary" (click)="addToCart(product)">Add to cart</button></div>
+  </div>
+
+</div>
