@@ -1,0 +1,23 @@
+﻿version: '3.4'
+
+services:
+  webapi:
+    image: ${DOCKER_REGISTRY-}webapi:1.0.0
+    build:
+      context: .
+      dockerfile: SalesTaxes.API/Dockerfile
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+    ports:
+      - "4202:80"
+
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+80
+  webapp:
+    image: ${DOCKER_REGISTRY-}webapp:1.0.0
+    build:
+      context: .
+      dockerfile: SalesTaxes.Frontend/Dockerfile
+    ports:
+      - "4200:80"

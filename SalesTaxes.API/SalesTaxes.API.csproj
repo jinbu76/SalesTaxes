@@ -4,6 +4,7 @@
         <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -14,6 +15,18 @@
     <ItemGroup>
       <ProjectReference Include="..\SalesTaxes.Domains.Product.Infrastructure\SalesTaxes.Domains.Product.Infrastructure.csproj" />
       <ProjectReference Include="..\SalesTaxes.Domains.Product.ServiceDefinition\SalesTaxes.Domains.Product.ServiceDefinition.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="salestaxes.db">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>
